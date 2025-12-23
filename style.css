@@ -1,0 +1,998 @@
+/* style.css */
+
+/* ============================================
+   RESET E ESTILOS BASE
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: #0ABAB5;
+    background-color: #fefefe;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================================
+   HEADER E NAVEGAÇÃO
+   ============================================ */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.98);
+    padding: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+/* LOGO */
+.logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color:#0ABAB5;
+}
+
+.logo a {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.logo a:hover {
+    opacity: 0.8;
+}
+
+.logo-img {
+    height: 65px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.header.scroll-up .logo-img {
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.header.scroll-down .logo-img {
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    color: #222;
+    margin-left: 12px;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.logo a:hover .brand-name {
+    color: #0ABAB5;
+}
+
+/* MENU PRINCIPAL */
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #0ABAB5;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-link:hover {
+    color: #0ABAB5;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #0ABAB5;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* BOTÃO MENU MOBILE */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #0ABAB5;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 8px;
+}
+
+/* ============================================
+   HERO SECTION - CARROSSEL
+   ============================================ */
+.hero-section {
+    margin-top: 70px;
+    height: calc(100vh - 70px);
+    min-height: 600px;
+    position: relative;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.slide-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.slide-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
+}
+
+.slide-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 0 80px;
+    color: #fff;
+}
+
+.content-wrapper {
+    max-width: 500px;
+}
+
+.badge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    padding: 8px 20px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.slide-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 65px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.gold-text {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.gold-line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #0ABAB5;
+}
+
+.gold-karat {
+    font-size: 18px;
+    letter-spacing: 3px;
+    color:#eee;
+    white-space: nowrap;
+}
+
+.slide-description {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    max-width: 400px;
+    font-weight: 300;
+}
+
+.slide-actions {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.whatsapp-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.whatsapp-btn:hover {
+    background-color: #0ABAB5;
+    transform: translateY(-2px);
+}
+
+.collection-btn {
+    display: inline-block;
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.collection-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-2px);
+}
+
+/* CONTROLES DO CARROSSEL */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.5s ease;
+    backdrop-filter: blur(10px);
+}
+
+.carousel-control:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-control.prev {
+    left: 30px;
+}
+
+.carousel-control.next {
+    right: 30px;
+}
+
+/* INDICADORES DO CARROSSEL */
+.carousel-indicators {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    padding: 0;
+}
+
+.indicator.active {
+    background-color: white;
+    border-color: white;
+}
+
+/* ============================================
+   SEÇÃO COLEÇÕES
+   ============================================ */
+.collections-section {
+    padding: 100px 0;
+    background-color: #0ABAB5;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.section-subtitle {
+    font-size: 16px;
+    color: #000;
+    font-weight: 300;
+}
+
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.collection-card {
+    background-color: white;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+}
+
+.collection-card:hover {
+    transform: translateY(-10px);
+}
+
+.collection-image {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.collection-overlay {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px 15px;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.collection-info {
+    padding: 25px;
+}
+
+.collection-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.collection-description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.collection-price {
+    font-size: 18px;
+    font-weight: 500;
+    color: #c5a572;
+}
+
+/* ============================================
+   SEÇÃO SOBRE
+   ============================================ */
+.about-section {
+    padding: 100px 0;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+.about-description {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+
+    text-align: justify;     /* JUSTIFICA O TEXTO */
+    margin-bottom: 0;        /* REMOVE O ESPAÇO ABAIXO */
+}
+.about-description + .about-description {
+    margin-top: 12px;
+}
+
+
+.about-btn {
+    display: inline-block;
+    background-color: transparent;
+    color: #222;
+    text-decoration: none;
+    padding: 15px 40px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border: 1px solid #222;
+    margin-top: 20px;
+    transition: all 0.5s ease;
+}
+
+.about-btn:hover {
+    background-color: #0ABAB5;
+    color: white;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+    background-color: #222;
+    color: #ddd;
+    padding: 40px 0 20px;
+    width: 100%;
+}
+
+/* CONTEÚDO PRINCIPAL (3 COLUNAS) */
+.footer-main-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.2fr;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+/* LINHA DIVISÓRIA */
+.footer-divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.15);
+    margin: 25px 0;
+    width: 100%;
+}
+
+/* SEÇÃO "SIGA-NOS" */
+.footer-social-section {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.social-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ccc;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ddd;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 18px;
+}
+
+.social-link:hover {
+    background-color: #0ABAB5;
+    color: #222;
+    transform: translateY(-3px);
+}
+
+/* COPYRIGHT */
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.copyright {
+    font-size: 13px;
+    color: #777;
+    line-height: 1.5;
+}
+
+/* LOGO FOOTER */
+.footer-brand .logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 150px;
+}
+
+.footer-brand .logo-img {
+    height: 60px;
+    width: auto;
+    opacity: 0.9;
+    display: block;
+    max-width: 170px;
+    height: auto;
+    object-fit: contain;
+}
+
+.footer-brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: white;
+    margin-left: 10px;
+}
+
+.footer-description {
+    font-size: 14px;
+    line-height: 2;
+    color: #aaa;
+    margin: 80px 0;
+    max-width: 320px;
+}
+
+.footer-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.footer-list {
+    list-style: none;
+}
+
+.footer-list li {
+    margin-bottom: 10px;
+}
+
+.footer-list a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-list a:hover {
+    color: #0ABAB5;
+}
+
+.contact-info {
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.contact-info i {
+    color: #0ABAB5;
+    min-width: 18px;
+    font-size: 14px;
+}
+
+.whatsapp-footer-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+.whatsapp-footer-btn:hover {
+    background-color: #0ABAB5;
+}
+
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+@media (max-width: 992px) {
+    .brand-name {
+        font-size: 18px;
+        margin-left: 10px;
+        letter-spacing: 1px;
+    }
+    
+    .logo {
+        height: 55px;
+    }
+    
+    .logo-img {
+        height: 32px;
+    }
+
+    .slide-title {
+        font-size: 56px;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .footer-main-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+    
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+    display: block;
+    z-index: 2000;
+  }
+
+  .nav {
+    display: flex;  
+    position: fixed;
+    inset: 0;
+    background: rgba(255,255,255,0.98);
+    z-index: 2000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity .3s ease, visibility .3s ease;
+  }
+
+  .nav.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 30px;
+  }
+    
+    .nav-link {
+        font-size: 18px;
+        color: #0ABAB5;
+    }
+    
+    .menu-toggle {
+        display: block;
+        transition: transform 0.5s ease;
+    }
+    
+    .menu-toggle.active {
+        transform: rotate(90deg);
+    }
+    
+    /* Hero Section para mobile */
+    .hero-section {
+        height: 70vh;
+        min-height: 500px;
+        margin-top: 60px;
+    }
+    
+    .slide-content {
+        padding: 0 30px;
+    }
+    
+    .slide-title {
+        font-size: 42px;
+    }
+    
+    .slide-description {
+        font-size: 15px;
+    }
+    
+    .slide-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .carousel-control {
+        width: 40px;
+        height: 40px;
+        opacity: 0.8;
+    }
+    
+    .carousel-control.prev {
+        left: 15px;
+    }
+    
+    .carousel-control.next {
+        right: 15px;
+    }
+    
+    .collections-section,
+    .about-section {
+        padding: 60px 0;
+    }
+    
+    .section-title,
+    .about-title {
+        font-size: 32px;
+    }
+    
+    .footer {
+        padding: 30px 0 15px;
+    }
+    
+    .footer-main-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .footer-divider {
+        margin: 20px 0;
+    }
+    
+    .social-links {
+        gap: 12px;
+    }
+    
+    .social-link {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-name {
+        font-size: 14px;
+        margin-left: 6px;
+        display: none;
+    }
+    
+    .hero-section {
+        height: 60vh;
+        min-height: 450px;
+    }
+    
+    .slide-title {
+        font-size: 36px;
+    }
+    
+    .gold-text {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .gold-line {
+        width: 50px;
+        margin: 0 auto;
+    }
+    
+    .whatsapp-btn,
+    .collection-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .badge {
+        font-size: 11px;
+        padding: 6px 15px;
+    }
+    
+    .carousel-indicators {
+        bottom: 20px;
+    }
+    
+    .footer {
+        padding: 25px 0 10px;
+    }
+    
+    .footer-brand-name {
+        font-size: 18px;
+    }
+    
+    .social-title {
+        font-size: 15px;
+    }
+}
+/* ============================================
+   PRELOADER
+============================================ */
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#preloader.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* LOGO */
+.preloader-logo {
+  width: 160px;
+  max-width: 70%;
+  position: relative;
+  animation: logo-pulse 2.5s ease-in-out infinite;
+}
+
+/* brilho passando */
+.preloader-logo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(10, 186, 181, 0.9),
+    transparent
+  );
+
+  transform: translateX(-100%);
+  animation: logo-shine 2.5s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+/* animação de leve pulsar */
+@keyframes logo-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+/* animação de brilho */
+@keyframes logo-shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  60% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+

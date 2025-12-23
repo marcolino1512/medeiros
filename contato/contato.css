@@ -1,0 +1,368 @@
+/* ============================================
+   GOOGLE FONTS
+============================================ */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap");
+
+/* ============================================
+   RESET
+============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================
+   BASE
+============================================ */
+body {
+  font-family: "Poppins", sans-serif;
+  background: #fefefe;
+  color: #222;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ============================================
+   HEADER
+============================================ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.98);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+/* LOGO */
+.logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 65px;
+}
+
+.brand-name {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  color: #222;
+  margin-left: 12px;
+}
+
+/* ============================================
+   MENU DESKTOP
+============================================ */
+
+.nav {
+  display: flex;
+  align-items: center;
+  position: relative;   /* 🔑 garante layout normal */
+  inset: auto;          /* 🔑 reseta mobile */
+  transform: none;      /* 🔑 reseta mobile */
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+.nav-list {
+  display: flex;
+  gap: 35px;
+  list-style: none;
+}
+
+.nav-link {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #0ABAB5;
+  text-decoration: none;
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background: #0ABAB5;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   BOTÃO HAMBURGUER
+============================================ */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: #0ABAB5;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+  z-index: 3001;
+}
+
+.menu-toggle.active {
+  transform: rotate(90deg);
+}
+
+/* ============================================
+   HERO CONTATO
+============================================ */
+.contact-hero {
+  padding: 120px 20px 80px;
+  text-align: center;
+}
+
+.contact-logo {
+  width: 180px;
+  max-width: 80%;
+  position: relative;
+  top: -15px;
+  overflow: hidden;
+}
+
+/* brilho */
+.contact-logo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.6),
+    transparent
+  );
+  animation: logo-shine 3.5s ease-in-out infinite;
+}
+
+@keyframes logo-shine {
+  0% { left: -60%; }
+  50% { left: 120%; }
+  100% { left: 120%; }
+}
+
+/* ============================================
+   CONTEÚDO
+============================================ */
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 100px;
+}
+
+.contact-info h2,
+.contact-form h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.contact-text {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+.contact-list {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.contact-list li {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.contact-list a {
+  color: #0ABAB5;
+  text-decoration: none;
+}
+
+/* WhatsApp */
+.whatsapp-cta {
+  display: inline-block;
+  background: #25D366;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+}
+
+/* FORM */
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 14px 16px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.contact-form button {
+  margin-top: 10px;
+  padding: 14px;
+  border-radius: 30px;
+  border: none;
+  background: #0ABAB5;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ============================================
+   MOBILE
+============================================ */
+@media (max-width: 768px) {
+
+  /* some nome da marca */
+  .brand-name {
+    display: none;
+  }
+
+  /* botão aparece */
+  .menu-toggle {
+    display: block;
+    position: fixed;
+    top: 18px;
+    right: 18px;
+  }
+
+  /* MENU MOBILE */
+  .nav {
+    position: fixed;
+    inset: 0;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(12px);
+    justify-content: center;
+    align-items: center;
+
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+
+    transition: transform 0.6s ease, opacity 0.4s ease;
+  }
+
+  .nav.active {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .nav-link {
+    font-size: 18px;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* ============================================
+   MOBILE PEQUENO
+============================================ */
+@media (max-width: 480px) {
+  .contact-logo {
+    width: 140px;
+  }
+}
+#preloader.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* LOGO */
+.preloader-logo {
+  width: 160px;
+  max-width: 70%;
+  position: relative;
+  animation: logo-pulse 2.5s ease-in-out infinite;
+}
+
+/* brilho passando */
+.preloader-logo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(10, 186, 181, 0.9),
+    transparent
+  );
+
+  transform: translateX(-100%);
+  animation: logo-shine 2.5s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+/* animação de leve pulsar */
+@keyframes logo-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+/* animação de brilho */
+@keyframes logo-shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  60% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
